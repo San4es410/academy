@@ -15,7 +15,6 @@ public class Application {
 		}
 
 		System.out.println(cat1.age);
-
 	}
 
 }
