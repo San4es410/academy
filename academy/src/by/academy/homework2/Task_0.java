@@ -28,12 +28,12 @@ public class Task_0 {
 		int[] arr = new int[n];
 
 		if (n < 2 || n > Math.pow(10, 5)) {
-			System.out.println("Недопустимое значение n");
+			System.out.println("РќРµРґРѕРїСѓСЃС‚РёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ n");
 			return;
 		}
 
 		if (k <= 0 || k > Math.pow(10, 9)) {
-			System.out.println("Недопустимое значение k");
+			System.out.println("РќРµРґРѕРїСѓСЃС‚РёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ k");
 			return;
 		}
 
@@ -46,7 +46,7 @@ public class Task_0 {
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = i + 1; j < arr.length; j++) {
 				if (arr[i] == arr[j]) {
-					System.out.println("каждое значение массива arr[i] должно быть уникальным");
+					System.out.println("РєР°Р¶РґРѕРµ Р·РЅР°С‡РµРЅРёРµ РјР°СЃСЃРёРІР° arr[i] РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ СѓРЅРёРєР°Р»СЊРЅС‹Рј");
 					return;
 				}
 			}
