@@ -10,6 +10,7 @@ public class Task_1 {
 		String secondString = scan.nextLine();
 
 		System.out.println(compare(firstString, secondString));
+		scan.close();
 	}
 
 	public static boolean compare(String firstString, String secondString) {
