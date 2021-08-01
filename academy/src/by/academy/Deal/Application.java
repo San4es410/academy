@@ -8,9 +8,9 @@ public class Application {
 		User buyer = new User();
 		Product[] products = new Product[3];
 		
-		products[0] = new Vino("Autumn", 20.0, 5, "Red", 2000);
-		products[1] = new Cheese("Rocfor", 40, 2, 2019, "hard");
-		products[2] = new Vino("Magic", 50, 3, "White", 1995);
+		products[0] = new Wine("Autumn", 60.0, 5, "Red", 2000);
+		products[1] = new Cheese("Rocfor", 40, 2, 2019, "Hard");
+		products[2] = new Beer("Hunt", 25, 3, "Dark", 8.5);
 		
 		deal.setBuyer(buyer);
 		deal.setSeller(seller);

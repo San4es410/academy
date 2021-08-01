@@ -1,14 +1,12 @@
 package by.academy.Deal;
 
-import java.util.Objects;
-
 public class Cheese extends Product {
-	private int age;
+	private int weight;
 	private String mark;
 
-	public Cheese(String name, double price, int quantity, int age, String mark) {
+	public Cheese(String name, double price, int quantity, int weight, String mark) {
 		super(name, price, quantity);
-		this.age = age;
+		this.weight = weight;
 		this.mark = mark;
 	}
 
@@ -17,11 +15,11 @@ public class Cheese extends Product {
 	}
 
 	public int getAge() {
-		return age;
+		return weight;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setAge(int weight) {
+		this.weight = weight;
 	}
 
 	public String getMark() {
@@ -36,41 +34,48 @@ public class Cheese extends Product {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(age, mark);
+		result = prime * result + ((mark == null) ? 0 : mark.hashCode());
+		result = prime * result + weight;
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) {
+		if (this == obj)
 			return true;
-		}
-		if (!super.equals(obj)) {
+		if (!super.equals(obj))
 			return false;
-		}
-		if (getClass() != obj.getClass()) {
+		if (getClass() != obj.getClass())
 			return false;
-		}
 		Cheese other = (Cheese) obj;
-		return age == other.age && Objects.equals(mark, other.mark);
+		if (mark == null) {
+			if (other.mark != null)
+				return false;
+		} else if (!mark.equals(other.mark))
+			return false;
+		if (weight != other.weight)
+			return false;
+		return true;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Cheese [age=");
-		builder.append(age);
+		builder.append("Cheese [weight=");
+		builder.append(weight);
 		builder.append(", mark=");
 		builder.append(mark);
 		builder.append("]");
 		return builder.toString();
 	}
 
-	protected double discount() {
-		if (age < 2018) {
+	@Override
+	public double discount() {
+		if (weight > 500) {
 			return price * 0.2;
 		} else {
 			return 0.0;
 		}
 	}
+
 }

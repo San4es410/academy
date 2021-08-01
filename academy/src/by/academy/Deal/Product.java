@@ -6,7 +6,6 @@ public abstract class Product {
 	protected int quantity;
 
 	public Product(String name, double price, int quantity) {
-		super();
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
@@ -41,6 +40,39 @@ public abstract class Product {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(price);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + quantity;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+			return false;
+		if (quantity != other.quantity)
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Product [name=");
@@ -53,49 +85,12 @@ public abstract class Product {
 		return builder.toString();
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = (int) (prime * result + price);
-		result = prime * result + quantity;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		Product other = (Product) obj;
-		if (name == null) {
-			if (other.name != null) {
-				return false;
-			}
-		} else if (!name.equals(other.name)) {
-			return false;
-		}
-		if (price != other.price) {
-			return false;
-		}
-		if (quantity != other.quantity) {
-			return false;
-		}
-		return true;
-	}
 	
-	protected abstract double discount();
+
+	public abstract double discount();
 
 	public double countPrice() {
 		return (1 - discount()) * price * quantity;
 	}
-	
-	
+
 }
