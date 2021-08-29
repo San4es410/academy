@@ -34,14 +34,14 @@ public class Task_3 {
 		try {
 			file.createNewFile();
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 
 		try (FileOutputStream output = new FileOutputStream(file);
 				ObjectOutputStream output1 = new ObjectOutputStream(output)) {
 			output1.writeObject(user);
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 	}
 
