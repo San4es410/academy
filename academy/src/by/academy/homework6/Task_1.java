@@ -1,13 +1,10 @@
 package by.academy.homework6;
 
 import java.io.File;
-import java.io.FileOutputStream;
+
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.Writer;
-import java.nio.file.Files;
-import java.nio.file.Path;
+
 import java.util.Scanner;
 
 public class Task_1 {
@@ -16,7 +13,7 @@ public class Task_1 {
 		String path = "D:\\Files\\task1\\task.txt";
 		File file = new File(path);
 		file.getParentFile().mkdirs();
-		
+
 		try {
 			file.createNewFile();
 		} catch (IOException e1) {
