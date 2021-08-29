@@ -29,7 +29,8 @@ public class Task_2 {
 
 			while (bufferReader.ready()) {
 				String line = bufferReader.readLine();
-				bufferWriter.write(line);
+				String newLine = line.replaceAll("\\s+","");
+				bufferWriter.write(newLine);
 			}
 
 		} catch (IOException e) {
